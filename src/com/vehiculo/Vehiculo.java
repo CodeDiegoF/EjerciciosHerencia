@@ -1,16 +1,19 @@
 package com.vehiculo;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Vehiculo {
+     protected final String matricula;
      protected int numeroRuedas;
      protected String propietario;
      protected Date fechacompra;
      protected  int numeroPasajeros;
      
-     public Vehiculo(int numeroRuedas, String propietario,
+     public Vehiculo(String matricula, int numeroRuedas, String propietario,
                      Date fechacompra, int numeroPasajeros)
      {
+          this.matricula = matricula;
           this.numeroRuedas = numeroRuedas;
           this.propietario = propietario;
           this.fechacompra = fechacompra;
@@ -44,13 +47,13 @@ public class Vehiculo {
           
           Vehiculo vehiculo = (Vehiculo) obj;
           
-          return propietario != null ? propietario.equals(vehiculo.propietario) : vehiculo.propietario == null;
+          return Objects.equals(matricula, vehiculo.matricula);
           
      }
      
      @Override
      public int hashCode() {
-          return propietario != null ? propietario.hashCode() : 0;
+          return Objects.hashCode(matricula);
      }
      
 }

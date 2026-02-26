@@ -5,11 +5,11 @@ import java.util.Date;
 public class Moto extends Vehiculo {
      private int cilindrada;
      
-     public Moto(int numeroRuedas, String propietario,
+     public Moto(String matricula, int numeroRuedas, String propietario,
                   Date fechacompra, int numeroPasajeros,
                   int cilindrada)
      {
-          super(numeroRuedas, propietario, fechacompra, numeroPasajeros);
+          super(matricula,numeroRuedas, propietario, fechacompra, numeroPasajeros);
           this.cilindrada= cilindrada;
      }
      
