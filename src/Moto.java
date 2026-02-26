@@ -1,0 +1,21 @@
+import java.util.Date;
+
+public class Moto extends Vehiculo {
+     private int cilindrada;
+     
+     public Moto(int numeroRuedas, String propietario,
+                  Date fechacompra, int numeroPasajeros,
+                  int cilindrada)
+     {
+          super(numeroRuedas, propietario, fechacompra, numeroPasajeros);
+          this.cilindrada= cilindrada;
+     }
+     
+     public int getCilindrada() {
+          return cilindrada;
+     }
+     
+     public void setCilindrada(int cilindrada) {
+          this.cilindrada = cilindrada;
+     }
+}
