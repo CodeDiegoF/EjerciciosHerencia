@@ -1,6 +1,8 @@
+package com.vehiculo;
+
 import java.util.Date;
 
-public class Coche extends Vehiculo{
+public class Coche extends Vehiculo {
      private boolean diesel;
      private boolean descapotable;
      
