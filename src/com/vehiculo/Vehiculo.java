@@ -36,5 +36,21 @@ public class Vehiculo {
      {
           return numeroPasajeros;
      }
-
+     
+     @Override
+     public boolean equals(Object obj) {
+          if(this == obj) return true;
+          if(obj == null || getClass() != obj.getClass()) return false;
+          
+          Vehiculo vehiculo = (Vehiculo) obj;
+          
+          return propietario != null ? propietario.equals(vehiculo.propietario) : vehiculo.propietario == null;
+          
+     }
+     
+     @Override
+     public int hashCode() {
+          return propietario != null ? propietario.hashCode() : 0;
+     }
+     
 }
