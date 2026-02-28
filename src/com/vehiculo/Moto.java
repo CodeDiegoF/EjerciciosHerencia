@@ -1,4 +1,4 @@
-package vehiculo;
+package com.vehiculo;
 
 import java.util.Date;
 
