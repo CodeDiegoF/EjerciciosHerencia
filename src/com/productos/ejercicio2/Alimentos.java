@@ -41,11 +41,13 @@ public class Alimentos extends Producto {
      public String toString() {
                  StringBuilder sb = new StringBuilder();
                  
-                 sb.append("Alimentos{");
-                 sb.append("fechaCaducidad=").append(fechaCaducidad);
+                 sb.append("Alimentos{ ");
+                 sb.append("nombreProducto=").append(nombreProducto);
+                 sb.append(", fechaCaducidad=").append(fechaCaducidad);
                  sb.append(", gluten=").append(gluten);
                  sb.append(", precioProducto=").append(precioProducto);
                  sb.append(", estaCaducado=").append(estaCaducado());
+                 sb.append(" }");
                  
                  return sb.toString();
             }
