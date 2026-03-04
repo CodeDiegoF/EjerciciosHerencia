@@ -1,5 +1,6 @@
 package com.productos.ejercicio2;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Alimentos extends Producto {
      private LocalDate fechaCaducidad;
@@ -31,4 +32,21 @@ public class Alimentos extends Producto {
      public double getPrecioProducto() {
           return precioProducto * IVA;
      }
+     
+     public boolean estaCaducado() {
+          return fechaCaducidad.isAfter(LocalDate.now());
+     }
+     
+     @Override
+     public String toString() {
+                 StringBuilder sb = new StringBuilder();
+                 
+                 sb.append("Alimentos{");
+                 sb.append("fechaCaducidad=").append(fechaCaducidad);
+                 sb.append(", gluten=").append(gluten);
+                 sb.append(", precioProducto=").append(precioProducto);
+                 sb.append(", estaCaducado=").append(estaCaducado());
+                 
+                 return sb.toString();
+            }
 }

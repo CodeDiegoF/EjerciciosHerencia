@@ -2,7 +2,7 @@ package com.productos.ejercicio2;
 
 import java.util.Objects;
 
-public class Producto {
+public abstract class Producto {
      protected final String idProducto;
      protected String nombreProducto;
      protected double precioProducto;
@@ -26,15 +26,12 @@ public class Producto {
           this.nombreProducto = nombreProducto;
      }
      
-     public double getPrecioProducto() {
-          return precioProducto;
-     }
-     
      public void setPrecioProducto(double precioProducto) {
           this.precioProducto = precioProducto;
      }
      
-     @Override
+     public abstract double getPrecioProducto();
+     
      public boolean equals(Object obj) {
           if (this == obj) return true;
           if (obj == null || getClass() != obj.getClass()) return false;
@@ -44,7 +41,6 @@ public class Producto {
           return Objects.equals(idProducto, producto.idProducto);
      }
      
-     @Override
      public int hashCode() {
           return Objects.hashCode(idProducto);
      }
