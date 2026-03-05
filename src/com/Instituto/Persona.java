@@ -49,4 +49,10 @@ public class Persona {
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
+     
+     @Override
+     public String toString() {
+          return String.format("%S,%s,%d/%d/%d", dni, nombre, fechaNacimiento.getDayOfMonth(),
+                  fechaNacimiento.getMonthValue(), fechaNacimiento.getYear());
+     }
 }

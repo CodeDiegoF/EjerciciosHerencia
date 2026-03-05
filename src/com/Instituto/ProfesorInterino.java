@@ -8,7 +8,7 @@ import java.time.LocalDate;
  */
 public class ProfesorInterino extends Profesor {
     /** Fecha de finalización del contrato */
-    private LocalDate fechaFinContrato;
+    private int mesesContratacion;
 
     /**
      * Constructor de ProfesorInterino
@@ -16,26 +16,30 @@ public class ProfesorInterino extends Profesor {
      * @param nombre Nombre
      * @param fechaNacimiento Fecha de nacimiento
      * @param especialidad Especialidad
-     * @param fechaFinContrato Fecha de fin de contrato
+     * @param mesesContratacion Meses de contratación
      */
-    public ProfesorInterino(String dni, String nombre, LocalDate fechaNacimiento, Especialidad especialidad, LocalDate fechaFinContrato) {
+    public ProfesorInterino(String dni, String nombre, LocalDate fechaNacimiento, Especialidad especialidad, int mesesContratacion) {
         super(dni, nombre, fechaNacimiento, especialidad);
-        this.fechaFinContrato = fechaFinContrato;
+        this.mesesContratacion = mesesContratacion;
     }
 
     /**
-     * Devuelve la fecha de fin de contrato
-     * @return Fecha de fin de contrato
+     * Devuelve los meses de contratación
+     * @return mesesContratacion
      */
-    public LocalDate getFechaFinContrato() {
-        return fechaFinContrato;
+    public int getMesesContratacion() {
+        return mesesContratacion;
     }
 
     /**
-     * Establece la fecha de fin de contrato
-     * @param fechaFinContrato Nueva fecha de fin de contrato
-     */
-    public void setFechaFinContrato(LocalDate fechaFinContrato) {
-        this.fechaFinContrato = fechaFinContrato;
+     * Establece los meses de contratación
+     * @param mesesContratacion Meses de contratación
+     */public void setMesesContratacion(int mesesContratacion) {
+        this.mesesContratacion = mesesContratacion;
     }
+    
+        @Override
+        public String toString() {
+             return String.format("%s,%d", super.toString(), mesesContratacion);
+        }
 }

@@ -29,4 +29,9 @@ public class Profesor extends Persona {
     public Especialidad getEspecialidad() {
         return especialidad;
     }
+    
+        @Override
+        public String toString() {
+             return String.format("%s,%s", super.toString(), especialidad);
+        }
 }
