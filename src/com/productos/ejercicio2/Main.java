@@ -1,6 +1,8 @@
 package com.productos.ejercicio2;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
      public static void main(String[] args) {
@@ -40,5 +42,7 @@ public class Main {
           Alimentos pan = new Alimentos("003", "pan", 1.20, LocalDate.of(2020, 1, 1), false);
           supermercado.addProducto(pan);
           System.out.println("Productos caducados: " + supermercado.obtenerProductosCaducados());
+          
+     
      }
 }

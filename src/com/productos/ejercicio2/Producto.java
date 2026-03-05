@@ -1,19 +1,14 @@
 package com.productos.ejercicio2;
 
-import java.util.Objects;
-
+/**
+ * Clase abstracta base para productos del supermercado.
+ */
 public abstract class Producto {
-    /**
-     * Identificador único del producto.
-     */
+    /** Identificador único del producto. */
     protected final String idProducto;
-    /**
-     * Nombre del producto.
-     */
+    /** Nombre del producto. */
     protected String nombreProducto;
-    /**
-     * Precio base del producto.
-     */
+    /** Precio base del producto. */
     protected double precioProducto;
 
     /**
@@ -54,38 +49,18 @@ public abstract class Producto {
     }
 
     /**
+     * Devuelve el precio base del producto.
+     * @return Precio base.
+     */
+    public double getPrecioProducto() {
+        return precioProducto;
+    }
+
+    /**
      * Establece el precio base del producto.
      * @param precioProducto Nuevo precio base.
      */
     public void setPrecioProducto(double precioProducto) {
         this.precioProducto = precioProducto;
-    }
-
-    /**
-     * Devuelve el precio final del producto (puede incluir IVA u otros cálculos en subclases).
-     * @return Precio final del producto.
-     */
-    public abstract double getPrecioProducto();
-
-    /**
-     * Compara si dos productos son iguales según su ID.
-     * @param obj Objeto a comparar.
-     * @return true si los productos tienen el mismo ID, false en caso contrario.
-     */
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-
-        Producto producto = (Producto) obj;
-
-        return Objects.equals(idProducto, producto.idProducto);
-    }
-
-    /**
-     * Devuelve el hashCode basado en el ID del producto.
-     * @return hashCode del producto.
-     */
-    public int hashCode() {
-        return Objects.hashCode(idProducto);
     }
 }

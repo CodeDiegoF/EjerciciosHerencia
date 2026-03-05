@@ -3,8 +3,13 @@ package com.productos.ejercicio2;
 import java.util.*;
 import java.time.LocalDate;
 
+/**
+ * Clase que representa un supermercado con un conjunto de productos.
+ */
 public class Supermercado {
+    /** Nombre del supermercado */
     private String nombreSupermercado;
+    /** Conjunto de productos del supermercado */
     private final Set<Producto> productos = new HashSet<>();
 
     /**
@@ -105,9 +110,11 @@ public class Supermercado {
     public List<Alimentos> obtenerProductosCaducados() {
         List<Alimentos> caducados = new ArrayList<>();
         for (Producto producto : productos) {
-            Alimentos alimento = (Alimentos) producto;
-            if (alimento.getFechaCaducidad().isAfter(LocalDate.now())) {
-                caducados.add(alimento);
+            if (producto instanceof Alimentos) {
+                Alimentos alimento = (Alimentos) producto;
+                if (alimento.estaCaducado()) {
+                    caducados.add(alimento);
+                }
             }
         }
         return caducados;
