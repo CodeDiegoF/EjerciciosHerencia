@@ -1,0 +1,14 @@
+package com.Instituto;
+
+/**
+ * Enum que representa las especialidades de los profesores.
+ */
+public enum Especialidad {
+     MATEMATICAS,
+     INGLES,
+     LENGUA_LITERATURA,
+     FISICA_QUIMICA,
+     BIOLOGIA_GEOLOGIA,
+     INFORMATICA,
+     EDUCACION_FISICA
+}
