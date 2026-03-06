@@ -1,6 +1,7 @@
 package com.Instituto;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Clase que representa una persona del instituto.
@@ -49,8 +50,22 @@ public class Persona {
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
-     
-     @Override
+
+    // El equals se basa únicamente en el DNI, ya que es el identificador único
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Persona persona = (Persona) o;
+        return Objects.equals(dni, persona.dni);
+    }
+
+    // El hashCode se basa únicamente en el DNI, ya que es el identificador único
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(dni);
+    }
+
+    @Override
      public String toString() {
           return String.format("%S,%s,%d/%d/%d", dni, nombre, fechaNacimiento.getDayOfMonth(),
                   fechaNacimiento.getMonthValue(), fechaNacimiento.getYear());
