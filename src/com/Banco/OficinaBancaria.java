@@ -36,10 +36,13 @@ public class OficinaBancaria {
      }
      
      public double getSaldoMayorOficina() {
-            return cuentasBancaria.values().stream()
-                    .mapToDouble(CuentaBancaria::getSaldo)
-                    .max()
-                    .orElse(0.0);
+          double mayorSaldo = 0;
+          for (CuentaBancaria cuenta : cuentasBancaria.values()) {
+                 if (cuenta.getSaldo() > mayorSaldo) {
+                       mayorSaldo = cuenta.getSaldo();
+                 }
+          }
+            return mayorSaldo;
      }
      
      public CuentaBancaria getCuentaSaldoInferior(double saldo){

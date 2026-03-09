@@ -51,5 +51,11 @@ public class CuentaBancaria {
             this.titulares.remove(persona);
      }
      
-     
+     @Override
+     public String toString() {
+          return "CuentaBancaria{ " +
+                  "numeroCuenta='" + numeroCuenta + '\'' +
+                  ", saldo= " + saldo +
+                  " }";
+     }
 }
