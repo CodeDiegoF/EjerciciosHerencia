@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 /**
  * Clase que representa un profesor interino del instituto.
- * Hereda de Profesor.
+ * Hereda de Profesor y añade los meses de contratación.
  */
 public class ProfesorInterino extends Profesor {
-    /** Fecha de finalización del contrato */
+    /** Meses de contratación del profesor interino */
     private int mesesContratacion;
 
     /**
@@ -34,12 +34,17 @@ public class ProfesorInterino extends Profesor {
     /**
      * Establece los meses de contratación
      * @param mesesContratacion Meses de contratación
-     */public void setMesesContratacion(int mesesContratacion) {
+     */
+    public void setMesesContratacion(int mesesContratacion) {
         this.mesesContratacion = mesesContratacion;
     }
     
-        @Override
-        public String toString() {
-             return String.format("%s,%d", super.toString(), mesesContratacion);
-        }
+    /**
+     * Devuelve la representación en String del profesor interino
+     * @return String con los datos del profesor interino
+     */
+    @Override
+    public String toString() {
+         return String.format("%s,%d", super.toString(), mesesContratacion);
+    }
 }

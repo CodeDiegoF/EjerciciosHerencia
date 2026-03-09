@@ -3,6 +3,7 @@ import java.time.LocalDate;
 
 /**
  * Clase de ayuda con utilidades para profesores.
+ * Proporciona métodos para calcular edad y antigüedad.
  */
 public class Helper {
     /**

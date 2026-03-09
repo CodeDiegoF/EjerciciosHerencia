@@ -2,6 +2,7 @@ package com.productos.ejercicio2;
 
 /**
  * Clase abstracta base para productos del supermercado.
+ * Define la estructura común de todos los productos.
  */
 public abstract class Producto {
     /** Identificador único del producto. */
@@ -64,3 +65,6 @@ public abstract class Producto {
         this.precioProducto = precioProducto;
     }
 }
+
+
+
