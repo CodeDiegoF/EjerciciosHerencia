@@ -1,5 +1,6 @@
 package com.Banco;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,13 +90,14 @@ public class OficinaBancaria {
       * @param saldo Saldo de referencia
       * @return Cuenta con saldo inferior, null si no la encuentra
       */
-     public CuentaBancaria getCuentaSaldoInferior(double saldo){
+     public List<CuentaBancaria> getCuentaSaldoInferior(double saldo){
+              List<CuentaBancaria> cuentasInferiores = new ArrayList<>();
           for (CuentaBancaria cuenta : cuentasBancaria.values()) {
                 if (cuenta.getSaldo() < saldo) {
-                      return cuenta;
+                      cuentasInferiores.add(cuenta);
                 }
           }
-          return null;
+            return cuentasInferiores;
      }
      
      /**
