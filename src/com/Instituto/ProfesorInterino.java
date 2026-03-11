@@ -1,50 +1,35 @@
 package com.Instituto;
-
 import java.time.LocalDate;
 
 /**
- * Clase que representa un profesor interino del instituto.
- * Hereda de Profesor y añade los meses de contratación.
+ * Clase ProfesorInterino - Representa a un profesor con contrato temporal
+ * Un profesor interino es un profesor que tiene un contrato por tiempo limitado
+ * La duración del contrato se especifica en meses
+ * Esta clase hereda de Profesor
  */
 public class ProfesorInterino extends Profesor {
-    /** Meses de contratación del profesor interino */
     private int mesesContratacion;
 
     /**
      * Constructor de ProfesorInterino
-     * @param dni DNI
-     * @param nombre Nombre
-     * @param fechaNacimiento Fecha de nacimiento
-     * @param especialidad Especialidad
-     * @param mesesContratacion Meses de contratación
+     * @param dni El DNI del profesor
+     * @param fechaNacimiento La fecha de nacimiento del profesor
+     * @param nombrePersona El nombre del profesor
+     * @param especialidad La especialidad académica del profesor
+     * @param mesesContratacion El número de meses de contratación
      */
-    public ProfesorInterino(String dni, String nombre, LocalDate fechaNacimiento, Especialidad especialidad, int mesesContratacion) {
-        super(dni, nombre, fechaNacimiento, especialidad);
+    public ProfesorInterino(String dni, LocalDate fechaNacimiento, String nombrePersona, Especialidad especialidad, int mesesContratacion) {
+        super(dni, fechaNacimiento, nombrePersona, especialidad);
         this.mesesContratacion = mesesContratacion;
     }
 
     /**
-     * Devuelve los meses de contratación
-     * @return mesesContratacion
-     */
-    public int getMesesContratacion() {
-        return mesesContratacion;
-    }
-
-    /**
-     * Establece los meses de contratación
-     * @param mesesContratacion Meses de contratación
-     */
-    public void setMesesContratacion(int mesesContratacion) {
-        this.mesesContratacion = mesesContratacion;
-    }
-    
-    /**
-     * Devuelve la representación en String del profesor interino
-     * @return String con los datos del profesor interino
+     * Representación en texto del ProfesorInterino
+     * Incluye toda la información de Profesor más los meses de contratación
+     * @return La representación en texto del ProfesorInterino
      */
     @Override
     public String toString() {
-         return String.format("%s,%d", super.toString(), mesesContratacion);
+        return String.format("%s,%d", super.toString(), mesesContratacion);
     }
 }

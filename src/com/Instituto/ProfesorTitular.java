@@ -3,49 +3,42 @@ package com.Instituto;
 import java.time.LocalDate;
 
 /**
- * Clase que representa un profesor titular del instituto.
- * Hereda de Profesor y añade la fecha de incorporación.
+ * Clase ProfesorTitular - Representa a un profesor con contrato fijo en el centro
+ * Un profesor titular es un profesor que tiene una fecha de incorporación al centro
+ * Lo que indica cuánto tiempo lleva trabajando en la institución
+ * Esta clase hereda de Profesor
  */
 public class ProfesorTitular extends Profesor {
-    /** Fecha de incorporación al instituto */
-    private LocalDate fechaIncorporacion;
+    private final LocalDate fechaIncorporacion;
 
     /**
      * Constructor de ProfesorTitular
-     * @param dni DNI del profesor
-     * @param nombre Nombre del profesor
-     * @param fechaNacimiento Fecha de nacimiento
-     * @param especialidad Especialidad del profesor
-     * @param fechaIncorporacion Fecha de incorporación
+     * @param dni El DNI del profesor
+     * @param fechaNacimiento La fecha de nacimiento del profesor
+     * @param nombrePersona El nombre del profesor
+     * @param especialidad La especialidad académica del profesor
+     * @param fechaIncorporacion La fecha en que el profesor se incorporó al centro
      */
-    public ProfesorTitular(String dni, String nombre, LocalDate fechaNacimiento, Especialidad especialidad, LocalDate fechaIncorporacion) {
-        super(dni, nombre, fechaNacimiento, especialidad);
+    public ProfesorTitular(String dni, LocalDate fechaNacimiento, String nombrePersona, Especialidad especialidad, LocalDate fechaIncorporacion) {
+        super(dni, fechaNacimiento, nombrePersona, especialidad);
         this.fechaIncorporacion = fechaIncorporacion;
     }
 
     /**
-     * Obtiene la fecha de incorporación
-     * @return fecha de incorporación
+     * Obtiene la fecha de incorporación del profesor al centro
+     * @return La fecha de incorporación del profesor
      */
     public LocalDate getFechaIncorporacion() {
         return fechaIncorporacion;
     }
 
     /**
-     * Establece la fecha de incorporación
-     * @param fechaIncorporacion nueva fecha de incorporación
-     */
-    public void setFechaIncorporacion(LocalDate fechaIncorporacion) {
-        this.fechaIncorporacion = fechaIncorporacion;
-    }
-
-    /**
-     * Devuelve la representación en String del ProfesorTitular, incluyendo especialidad y fecha de incorporación
-     * @return String con los datos del profesor titular
+     * Representación en texto del ProfesorTitular
+     * Incluye toda la información de Profesor más la fecha de incorporación
+     * @return La representación en texto del ProfesorTitular
      */
     @Override
     public String toString() {
-        return String.format("%s, %s, %02d/%02d/%04d", super.toString(), getEspecialidad(), fechaIncorporacion.getDayOfMonth(),
-                fechaIncorporacion.getMonthValue(), fechaIncorporacion.getYear());
+        return super.toString() + fechaIncorporacion;
     }
 }

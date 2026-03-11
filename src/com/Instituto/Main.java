@@ -1,54 +1,137 @@
 package com.Instituto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
- * Clase Main del módulo Instituto.
- * Demuestra el funcionamiento de personas, profesores y helpers.
+ * Clase Main - Programa principal para demostrar el funcionamiento de Claustro y Helper
+ * Este programa crea un claustro de profesores y realiza diversas operaciones con ellos
  */
 public class Main {
     /**
-     * Método principal
-     * @param args Argumentos de línea de comandos (no utilizados)
+     * Método main - Punto de entrada del programa
+     * Demuestra la creación de un claustro, adición/eliminación de profesores,
+     * y realiza búsquedas y cálculos usando los métodos disponibles
+     * @param args Argumentos de línea de comandos (no se utilizan)
      */
     public static void main(String[] args) {
-        // Crear una persona simple
-        Persona persona1 = new Persona("12345678A", "jacinto gómez gómez", LocalDate.of(2000, 12, 1));
-         System.out.println(persona1);
-        System.out.println("hashCode Persona1: " + persona1.hashCode());
-         System.out.println("***************************************");
-         
-        // Crear otra persona y usar equals para comparar
-        Persona persona2 = new Persona("12345678B", "marisa perales ruíz", LocalDate.of(2000, 12, 1));
-        System.out.println(persona1.equals(persona2));
-        System.out.println("hashCode Persona2: " + persona2.hashCode());
-        System.out.println(persona2);
+        /**
+         * Crea una instancia de Claustro con el nombre "Instituto Nacional"
+         * El claustro es el contenedor de todos los profesores del centro
+         */
+        Claustro claustro = new Claustro("Instituto Nacional");
 
-        System.out.println("***************************************");
+        /**
+         * Crea un profesor regular con los siguientes datos:
+         * DNI: 12345678A, Fecha de nacimiento: 20/05/1980, Nombre: Juan Perez
+         * Especialidad: MATEMATICAS
+         */
+        Profesor profesor1 = new Profesor("12345678A", LocalDate.of(1980, 5, 20), "Juan Perez", Especialidad.MATEMATICAS);
 
-        // Crear un profesor de una especialidad
-        Profesor profesor = new Profesor("12345678B", "marisa perales ruíz", LocalDate.of(2000, 12, 1), Especialidad.EDUCACION_FISICA);
-        System.out.println(profesor);
-        System.out.println("***************************************");
+        /**
+         * Crea otro profesor regular con los siguientes datos:
+         * DNI: 87654321B, Fecha de nacimiento: 15/08/1980, Nombre: Maria Gomez
+         * Especialidad: LENGUA
+         */
+        Profesor profesor2 = new Profesor("87654321B", LocalDate.of(1980, 8, 15), "Maria Gomez", Especialidad.LENGUA);
 
-        // Crear un profesor titular con fecha de incorporación
-        ProfesorTitular titular = new ProfesorTitular("12345678B", "marisa perales ruíz", LocalDate.of(2000, 12, 1), Especialidad.EDUCACION_FISICA, LocalDate.of(2020, 1, 1));
-        System.out.println(titular);
-        System.out.println("***************************************");
+        /**
+         * Crea un profesor titular (con contrato fijo) con los siguientes datos:
+         * DNI: 11223344C, Fecha de nacimiento: 10/03/1970, Nombre: Carlos Sanchez
+         * Especialidad: INGLES, Fecha de incorporación: 01/01/2000
+         */
+        ProfesorTitular profesorTitular1 = new ProfesorTitular("11223344C", LocalDate.of(1970, 3, 10), "Carlos Sanchez", Especialidad.INGLES, LocalDate.of(2000, 1, 1));
 
-        // Crear un profesor interino con meses de contratación
-        ProfesorInterino interino = new ProfesorInterino("12345678C", "juan González López", LocalDate.of(2000, 5, 15), Especialidad.EDUCACION_FISICA, 6);
-        // Mostrar datos del interino (usando toString)
-        System.out.println(interino);
+        /**
+         * Crea un profesor interino (con contrato temporal) con los siguientes datos:
+         * DNI: 44332211D, Fecha de nacimiento: 05/12/1990, Nombre: Ana Martinez
+         * Especialidad: LENGUA, Meses de contratación: 3 meses
+         */
+        ProfesorInterino profesorInterino = new ProfesorInterino("44332211D", LocalDate.of(1990, 12, 5), "Ana Martinez", Especialidad.LENGUA, 3);
 
-        // Crear helper y calcular edad y antigüedad
+        /**
+         * Agrega el profesor1 al claustro usando el método addProfesor()
+         * El profesor se almacena en el mapa con su DNI como clave
+         */
+        claustro.addProfesor(profesor1);
+
+        /**
+         * Agrega el profesor2 al claustro usando el método addProfesor()
+         * Ahora el claustro tiene 2 profesores
+         */
+        claustro.addProfesor(profesor2);
+
+        /**
+         * Imprime todos los profesores actualmente en el claustro
+         * Debe mostrar profesor1 y profesor2
+         */
+        System.out.println(claustro.getProfesores());
+
+        /**
+         * Elimina el profesor2 del claustro usando su DNI
+         * El claustro ahora solo tiene 1 profesor (profesor1)
+         */
+        claustro.removeProfesor(profesor2);
+
+        /**
+         * Imprime todos los profesores después de la eliminación
+         * Debe mostrar solo profesor1
+         */
+        System.out.println(claustro.getProfesores());
+
+        /**
+         * Agrega el profesor titular al claustro
+         * Ahora hay 2 profesores en el claustro
+         */
+        claustro.addProfesor(profesorTitular1);
+
+        /**
+         * Agrega el profesor interino al claustro
+         * Ahora hay 3 profesores en el claustro
+         */
+        claustro.addProfesor(profesorInterino);
+
+        /**
+         * Crea una instancia de Helper para usar sus métodos auxiliares
+         * Helper proporciona funciones para calcular edad y antigüedad
+         */
         Helper helper = new Helper();
-        // Calcular y mostrar la edad del profesor interino
-        int edadProfesor = helper.calcularEdad(interino);
-        System.out.println("Edad del profesor iterino: " + edadProfesor + " años");
 
-        // Calcular y mostrar la antigüedad del profesor titular
-        int antiguedadTitular = helper.CalcularAntiguedad(titular);
-        System.out.println("Antigüedad del profesor titular: " + antiguedadTitular + " años");
+        /**
+         * Calcula y imprime la edad actual del profesor1
+         * Utiliza el método obtenerEdad() que devuelve la edad en años
+         */
+        System.out.println("Edad profesor1: " + helper.obtenerEdad(profesor1));
+
+        /**
+         * Calcula y imprime los años de antigüedad del profesorTitular1
+         * Utiliza el método calcularAntiguedad() que devuelve años desde su incorporación
+         */
+        System.out.println("Antiguedad profesorTitular1: " + helper.calcularAntiguedad(profesorTitular1));
+
+        /**
+         * Busca todos los profesores de 46 años de edad en el claustro
+         * Utiliza el método getProfesoresPorEdad() que devuelve una lista
+         */
+        System.out.println("Profesores por edad 46: " + claustro.getProfesoresPorEdad(46));
+
+        /**
+         * Busca todos los profesores titulares con 26 años de antigüedad
+         * Utiliza el método getProfesoresPorAntiguedad() que devuelve una lista
+         */
+        System.out.println("Profesores por antiguedad 26: " + claustro.getProfesoresPorAntiguedad(26));
+
+        /**
+         * Busca un profesor específico por su DNI (11223344C)
+         * Utiliza el método getProfesorPorDNI() que devuelve el profesor o null
+         */
+        System.out.println("Profesor por DNI 11223344C: " + claustro.getProfesorPorDNI("11223344C"));
+
+        /**
+         * Calcula y imprime la edad media de todos los profesores del claustro
+         * Utiliza el método calcularEdadMediaProfesores() que devuelve un double
+         */
+        System.out.println("Edad Media: " + claustro.calcularEdadMediaProfesores());
+
     }
 }

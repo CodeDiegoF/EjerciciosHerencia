@@ -71,16 +71,14 @@ public class Alimentos extends Producto {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Alimentos{ ");
-        sb.append("idProducto= ").append(idProducto);
-        sb.append(", nombreProducto= ").append(nombreProducto);
-        sb.append(", fechaCaducidad= ").append(fechaCaducidad);
-        sb.append(", gluten= ").append(gluten);
-        sb.append(", precioProducto= ").append(precioProducto).append("€");
-        sb.append(", iva= ").append(getPrecioProducto()).append("€");
-        sb.append(", estaCaducado= ").append(estaCaducado());
-        sb.append(" }");
-        return sb.toString();
+        return "Alimentos{ " +
+                "idProducto= " + idProducto +
+                ", nombreProducto= " + nombreProducto +
+                ", fechaCaducidad= " + fechaCaducidad +
+                ", gluten= " + gluten +
+                ", precioProducto= " + precioProducto + "€" +
+                ", iva= " + getPrecioProducto() + "€" +
+                ", estaCaducado= " + estaCaducado() +
+                " }";
     }
 }
